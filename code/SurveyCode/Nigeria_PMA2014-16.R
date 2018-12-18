@@ -2,7 +2,7 @@
 ###
 ### Analysis of PMA rounds 1-3 (2014-2016)
 ### Updated October 9, 2018
-
+library(ipumsr)
 
 ##################################
 # -- read in the PMA2020 data -- #
