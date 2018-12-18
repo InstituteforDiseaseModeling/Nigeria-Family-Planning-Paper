@@ -7,17 +7,12 @@
 
 rm(list=ls())
 
-###############################
-# -- set working directory -- #
-###############################
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
-source("NumericalAnalysis/UsefulFunctions/SAE_Models.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/SAE_Models.R")
 
 ###################################
 # --- read in the shape files --- #
@@ -159,7 +154,7 @@ print(paste0(i," of ",nrow(models)," of spatial options.",Sys.time()))
 # -- fit the model for the outcomes-- #
 #######################################
 
-source("NumericalAnalysis/UsefulFunctions/Fit_SAE_Models_INLA.R")
+source("UsefulFunctions/Fit_SAE_Models_INLA.R")
 #####################################
 # --- look at model performance --- #
 #####################################
@@ -181,7 +176,7 @@ res$model<-1:6
 model_results<-rbind(model_results,res)
 
 }
-write_csv(model_results,paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/ModelSelection/Selection_Indicator",
+write_csv(model_results,paste0("Results/ModelSelection/Selection_Indicator",
           results$outcome[j],"_Parity",results$parity[j],"_Age",results$age[j],".csv"))
 
 }
