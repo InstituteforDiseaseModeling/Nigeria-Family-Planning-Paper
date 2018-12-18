@@ -7,7 +7,7 @@
 # -- load harmonized data for Nigeria MICS 2016 -- #
 ####################################################
 
-load("Data/MICS/ngwm5.Rdata")
+load("Data/MICS/ngwm5.RData")
 surveyID<-"ngwm5"
 
 #Only calculate women age 15-49

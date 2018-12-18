@@ -34,3 +34,12 @@ This file....
 8_DHS_SAE_LGA.R -
 
 8_DHS_SAE_State.R -
+
+Run in Docker
+-------------
+docker-compose up
+
+or
+
+docker build -t nigeria-fpp
+docker run --rm -p 8787:8787 -v <path_to_code_folder>:/home/rstudio -e "DISABLE_AUTH=true" nigeria-fpp

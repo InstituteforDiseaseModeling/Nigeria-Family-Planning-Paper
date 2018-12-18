@@ -8,7 +8,7 @@
 # -- load harmonized data for Nigeria MICS 2007 -- #
 ####################################################
 
-load("Data/MICS/ngwm3.Rdata")
+load("Data/MICS/ngwm3.RData")
 surveyID<-"ngwm3"
 
 #Only calculate women age 15-49
