@@ -8,16 +8,11 @@
 
 rm(list=ls())
 
-###############################
-# -- set working directory -- #
-###############################
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
 #####################################
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/expit_logit.R")
 
 # DHS #
 loc<-"Data/Processed/Nigeria/"

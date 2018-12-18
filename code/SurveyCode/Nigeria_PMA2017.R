@@ -2,7 +2,7 @@
 ###
 ### Analysis of PMA rounds 4 (2017)
 ### Updated October 9, 2018
-
+library(ipumsr)
 
 
 # load dataset
@@ -27,7 +27,7 @@ data$wt <- rowSums(data[,c("FQweight_Kaduna","FQweight_Lagos","FQweight_Anambra"
 ############################################
 # -- read in the summarize pma function -- #
 ############################################
-source("NumericalAnalysis/UsefulFunctions/summarize_pma.R")
+source("UsefulFunctions/summarize_pma.R")
 
 final<-summarize_pma(data)
 

@@ -40,49 +40,49 @@ source("UsefulFunctions/survey_compute.R")
 ##################
 # -- 1990 DHS -- #
 ##################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS1990.R")
+source("SurveyCode/Nigeria_DHS1990.R")
 
 ##################
 # -- 2003 DHS -- #
 ##################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2003.R")
+source("SurveyCode/Nigeria_DHS2003.R")
 
 ##################
 # -- 2008 DHS -- #
 ##################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2008.R")
+source("SurveyCode/Nigeria_DHS2008.R")
 
 ##################
 # -- 2013 DHS -- #
 ##################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2013.R")
+source("SurveyCode/Nigeria_DHS2013.R")
 
 ###################
 # -- 2007 MICS -- #
 ###################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_MICS2007.R")
+source("SurveyCode/Nigeria_MICS2007.R")
 
 ###################
 # -- 2011 MICS -- #
 ###################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_MICS2011.R")
+source("SurveyCode/Nigeria_MICS2011.R")
 
 ###################
 # -- 2016 MICS -- #
 ###################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_MICS2016.R")
+source("SurveyCode/Nigeria_MICS2016.R")
 
 #########################
 # -- 2014-16 PMA2020 -- #
 #########################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_PMA2014-16.R")
+source("SurveyCode/Nigeria_PMA2014-16.R")
 
 ######################
 # -- 2017 PMA2020 -- #
 ######################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_PMA2017.R")
+source("SurveyCode/Nigeria_PMA2017.R")
 
 ##########################
 # -- 2014 & 2015 NNHS -- #
 ##########################
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_NNHS2014-15.R")
+source("SurveyCode/Nigeria_NNHS2014-15.R")
