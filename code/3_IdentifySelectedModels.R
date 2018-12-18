@@ -7,15 +7,11 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
 
 ###################################
 # --- read in the shape files --- #
@@ -76,7 +72,7 @@ results$model<-results$time<-results$space<-NA
 for(j in 1:nrow(results)){
   # j<-1
   
-  tmp<-read_csv(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/ModelSelection/Selection_Indicator",
+  tmp<-read_csv(paste0("Results/ModelSelection/Selection_Indicator",
           results$outcome[j],"_Parity",results$parity[j],"_Age",results$age[j],".csv"))
   tmp<-tmp%>%filter(time=="rw2")
   
@@ -93,4 +89,4 @@ for(j in 1:nrow(results)){
 
 ##################################
 # -- save the selected models -- #
-write_csv(results,"NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/ModelSelection/SelectedModels_WAIC.csv")
+write_csv(results,"Results/ModelSelection/SelectedModels_WAIC.csv")
