@@ -1,0 +1,12 @@
+survey
+haven
+dplyr
+readr
+foreign
+maptools
+raster
+sp
+labelled
+data.table
+rgdal
+plyr
