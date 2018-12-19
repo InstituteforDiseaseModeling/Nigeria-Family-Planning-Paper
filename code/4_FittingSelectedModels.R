@@ -7,15 +7,11 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
 
 ###################################
 # --- read in the shape files --- #
@@ -58,7 +54,7 @@ table(dat$survey,dat$recode,useNA = "ifany")
 ####################################################################################
 ####################################################################################
 
-results<-read_csv("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/ModelSelection/SelectedModels_WAIC.csv")
+results<-read_csv("Results/ModelSelection/SelectedModels_WAIC.csv")
 
 
 
@@ -234,8 +230,7 @@ All$SE<-as.numeric(unlist(All[,SE]))
 # -- save the model output -- #
 ###############################
 
-save(mod,mod_dat,All,file=paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/",loc,
-                             "_model.RDATA"))
+save(mod,mod_dat,All,file=paste0("Results/Model_Fits/",loc,"_model.RDATA"))
 
 ##########################
 # -- Plot the results -- #
@@ -250,7 +245,7 @@ for(i in 1:length(unique(All$state))){
   
  
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/",state,"_",loc,
+png(paste0("Results/Figures_Supplement/",loc,"/",state,"_",loc,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=4*1.15,width=6*1.15,res=400, unit="in")
@@ -314,7 +309,7 @@ dev.off()
 ##############################################################
 for(k in 2013:2018){
   # k<-2013
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/Map_",loc,"_Year",k,
+png(paste0("Results/Figures_Supplement/",loc,"/Map_",loc,"_Year",k,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
@@ -345,7 +340,7 @@ if(variable=="unmet_need"){
   
   for(k in 2013:2018){
   # k<-2013
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/Map_",loc,"_Year",k,
+png(paste0("Results/Figures_Supplement/",loc,"/Map_",loc,"_Year",k,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
@@ -376,7 +371,7 @@ if(variable=="demand_satisfied"){
   
   for(k in 2013:2018){
   # k<-2013
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/Map_",loc,"_Year",k,
+png(paste0("Results/Figures_Supplement/",loc,"/Map_",loc,"_Year",k,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
@@ -426,7 +421,7 @@ for(jj in 1:1000){
 ##################
 ## plot results ##
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/AnnualChangeCI_",loc,"_Year",k,
+png(paste0("Results/Figures_Supplement/",loc,"/AnnualChangeCI_",loc,"_Year",k,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=8*1.15,width=6*1.15,res=400, unit="in")
@@ -456,7 +451,7 @@ dev.off()
 #### how robust are the rankings ####
 order_p<-order(apply(samps,1,median))
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/RobustnessOfRankings2015_",loc,"_Year",k,
+png(paste0("Results/Figures_Supplement/",loc,"/RobustnessOfRankings2015_",loc,"_Year",k,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=10*1.15,res=400, unit="in")
@@ -472,7 +467,7 @@ text(x = 1:37+0.05, par("usr")[3]-0.5 , labels = All$state[All$year==2015][order
 dev.off()
 
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement/",loc,"/RobustnessOfRankings2018_",loc,"_Year",k,
+png(paste0("Results/Figures_Supplement/",loc,"/RobustnessOfRankings2018_",loc,"_Year",k,
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=10*1.15,res=400, unit="in")

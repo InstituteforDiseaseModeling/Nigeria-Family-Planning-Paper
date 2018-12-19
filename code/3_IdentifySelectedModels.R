@@ -41,7 +41,7 @@ plot(shape2[indx,], col='red', add=T)
 
 ##################################
 # -- read in the combine data -- #
-dat<-read_csv("Data/Processed/Nigeria/All_Nigeria_2018-10-09.csv.csv")
+dat<-read_csv("Data/Processed/Nigeria/All_Nigeria_2018-10-09.csv")
 
 
 table(dat$survey,dat$recode,useNA = "ifany")
