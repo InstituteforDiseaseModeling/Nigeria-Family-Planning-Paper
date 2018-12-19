@@ -16,3 +16,7 @@ RUN R -e "install.packages('INLA', repos=c(getOption('repos'), INLA='https://inl
 # Specific versions of Haven (1.1.2) and labelled (1.1.0)
 RUN R -e "install.packages('https://cran.r-project.org/src/contrib/Archive/haven/haven_1.1.2.tar.gz', repos=NULL, type='source')"
 RUN R -e "install.packages('https://cran.r-project.org/src/contrib/Archive/labelled/labelled_1.1.0.tar.gz', repos=NULL, type='source')"
+
+# Copy the start script
+COPY start.sh .
+CMD ["/bin/bash","start.sh"]
