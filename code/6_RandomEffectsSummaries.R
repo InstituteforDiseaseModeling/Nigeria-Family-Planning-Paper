@@ -6,15 +6,11 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
 
 ###################################
 # --- read in the shape files --- #
@@ -44,7 +40,7 @@ plot(shape2[indx,], col='red', add=T)
 
 ##################################
 # -- read in the combine data -- #
-dat<-read_csv("Data/Processed/Nigeria/All_Nigeria_2018-10-09.csv")
+dat<-read_csv(paste0("Data/Processed/Nigeria/All_Nigeria_",as.character(today()),".csv"))
 
 
 table(dat$survey,dat$recode,useNA = "ifany")
@@ -57,7 +53,7 @@ table(dat$survey,dat$recode,useNA = "ifany")
 ####################################################################################
 ####################################################################################
 
-results<-read_csv("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/ModelSelection/SelectedModels_WAIC.csv")
+results<-read_csv("Results/ModelSelection/SelectedModels_WAIC.csv")
 
 
 variances<-NULL
@@ -85,8 +81,7 @@ variable<-c("modern_method","unmet_need","trad_method","demand_satisfied")[varia
 # -- save the model output -- #
 ###############################
 
-load(file=paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/",loc,
-                             "_model.RDATA"))
+load(file=paste0("Results/Model_Fits/",loc, "_model.RDATA"))
 
 # need to get the scale number out for BYM2 model
 var<-1/(mod$summary.hyperpar$"0.5quant"[grep("Prec",row.names(mod$summary.hyperpar))])^2
@@ -126,4 +121,4 @@ names(dat)<-variances[1,]
 ##############################
 res<-cbind(results,dat)
 
-write_csv(res,"NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/DecompVariance/results.csv")
+write_csv(res,"Results/DecompVariance/results.csv")

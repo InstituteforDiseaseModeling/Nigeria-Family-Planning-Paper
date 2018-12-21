@@ -6,15 +6,11 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
 
 ###################################
 # --- read in the shape files --- #
@@ -38,7 +34,7 @@ mat <- nb2mat(nb.r, style="B",zero.policy=TRUE) # mat is the 0/1 adjacency matri
 ######################## Anambra #################
 
   # k<-2013
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure1/Map_AnambraHighlighted",
+png(paste0("Results/PaperFigs/Figure1/Map_AnambraHighlighted",
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
@@ -57,7 +53,7 @@ dev.off()
 # -- read the model output -- #
 ###############################
 
-load("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/mcpr_AgeALL_ParityALL_model.RDATA")
+load("Results/Model_Fits/mcpr_AgeALL_ParityALL_model.RDATA")
 
 ########################################################
 # -- Just making a smoothed trend for Anambra state -- #
@@ -69,7 +65,7 @@ i<-26 #State Number for Anambra
   
  
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure1/",state,"_mCPR_All.png"),
+png(paste0("Results/PaperFigs/Figure1/",state,"_mCPR_All.png"),
     height=4*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(4,4,1,1))
 

@@ -16,54 +16,44 @@ library(maptools);library(raster);library(sp)
 library(labelled);library(data.table);library(rgdal)
 
 options(survey.lonely.psu="adjust")
-
-
-###############################
-# -- set working directory -- #
-###############################
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
 home<-paste0(getwd(),"/")
 
 ###################################################
 # -- load supporting functions from UN scripts -- #
 ###################################################
 
-source("NumericalAnalysis/UsefulFunctions/MICS_GenerateUnmet.R")
-source("NumericalAnalysis/UsefulFunctions/MICS_Categorization.R")
-source("NumericalAnalysis/UsefulFunctions/survey_compute.R")
-source("NumericalAnalysis/UsefulFunctions/summarize_pma.R")
-source("NumericalAnalysis/UsefulFunctions/summarize_pma_ipums.R")
-source("NumericalAnalysis/UsefulFunctions/unmet_recode.R")
-source("NumericalAnalysis/UsefulFunctions/add_fp_indicators.R")
-source("NumericalAnalysis/UsefulFunctions/survey_compute.R")
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/MICS_GenerateUnmet.R")
+source("UsefulFunctions/MICS_Categorization.R")
+source("UsefulFunctions/survey_compute.R")
+source("UsefulFunctions/summarize_pma.R")
+source("UsefulFunctions/summarize_pma_ipums.R")
+source("UsefulFunctions/unmet_recode.R")
+source("UsefulFunctions/add_fp_indicators.R")
+source("UsefulFunctions/survey_compute.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/expit_logit.R")
+
+
 
 ##################
 # -- 1990 DHS -- #
 ##################
-system.time({
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS1990_LGA.R")
-})# 36.7s
+source("SurveyCode/Nigeria_DHS1990_LGA.R")
+
 ##################
 # -- 2003 DHS -- #
 ##################
-system.time({
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2003_LGA.R")
-}) #79.7s
+source("SurveyCode/Nigeria_DHS2003_LGA.R")
+
 ##################
 # -- 2008 DHS -- #
 ##################
-system.time({
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2008_LGA.R")
-}) #343.7s
+source("SurveyCode/Nigeria_DHS2008_LGA.R")
+
 ##################
 # -- 2013 DHS -- #
 ##################
-system.time({
-source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2013_LGA.R")
-}) #399.6s
-
+source("SurveyCode/Nigeria_DHS2013_LGA.R")
 
 #######################################################
 ### Merging the Nigeria Surveys
@@ -77,7 +67,6 @@ source("NumericalAnalysis/LainaScripts/NGA_SAE_paper/SurveyCode/Nigeria_DHS2013_
 loc<-"Data/Processed/Nigeria/"
 
 processed<-list.files(loc)[grep("LGA",list.files(loc))]
-processed<-processed[-grep("All",processed)]
 # DHS LGA level analysis#
 dat<-read_csv(paste0(loc,processed[1]))
 for(i in 2:length(processed)){

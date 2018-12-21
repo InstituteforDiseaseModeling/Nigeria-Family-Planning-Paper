@@ -6,17 +6,13 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
-source("NumericalAnalysis/UsefulFunctions/firstup.R")
-source("NumericalAnalysis/UsefulFunctions/simpleCap.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/firstup.R")
+source("UsefulFunctions/simpleCap.R")
 
 ###################################
 # --- read in the shape files --- #
@@ -51,7 +47,7 @@ plot(shape2[indx,], col='red', add=T)
 
 ##################################
 # -- read in the combine data -- #
-All<-read_csv("Data/Processed/Nigeria/All_Nigeria_2018-10-09.csv")
+All<-read_csv(paste0("Data/Processed/Nigeria/All_Nigeria_",as.character(today()),".csv"))
 
 # subset to only DHS years
 All<-All%>%filter(DHS==1,age=="ALL",parity=="ALL",state!="ALL")
@@ -168,7 +164,7 @@ All$low<-expit(mod$summary.fitted.values$`0.025quant`)
 # -- save the model output -- #
 ###############################
 
-save(mod,All,file=paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/DHS_only_State_mCPR_model2.RDATA"))
+save(mod,All,file=paste0("Results/Model_Fits/DHS_only_State_mCPR_model2.RDATA"))
 
 ##########################
 # -- Plot the results -- #
@@ -176,7 +172,7 @@ save(mod,All,file=paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/M
 
 
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement",
+png(paste0("Results/Figures_Supplement",
 "/LGA_SAE_mcpr/Map_mCPR_State_2013.png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(0,0,1.5,0))
@@ -203,7 +199,7 @@ dev.off()
 ############################################
 ###### Plot ranked estimates ###############
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Figures_Supplement",
+png(paste0("Results/Figures_Supplement",
 "/LGA_SAE_mcpr/Ranked_mCPR_State_2013.png"),
     height=8*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(4,7,1,1))

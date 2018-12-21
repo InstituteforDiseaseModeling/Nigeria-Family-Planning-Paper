@@ -6,17 +6,12 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
-source("NumericalAnalysis/UsefulFunctions/firstup.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/firstup.R")
 
 
 ###################################
@@ -48,7 +43,7 @@ plot(shape2[indx,], col='red', add=T)
 
 ############################### Lagos ######################################
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure3/Map_Lagos_Highlighted",
+png(paste0("Results/PaperFigs/Figure3/Map_Lagos_Highlighted",
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
@@ -68,7 +63,7 @@ dev.off()
 
 ################################### Kaduna #####################################
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure3/Map_Kaduna_Highlighted",
+png(paste0("Results/PaperFigs/Figure3/Map_Kaduna_Highlighted",
            # format(today(), '%Y%m%d'),
            ".png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
@@ -96,7 +91,7 @@ dev.off()
 # -- read the model output -- #
 ###############################
 
-load("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/mcpr_AgeALL_ParityALL_model.RDATA")
+load("Results/Model_Fits/mcpr_AgeALL_ParityALL_model.RDATA")
 
 
 
@@ -124,7 +119,7 @@ indices<-which(preds$state==state )
 
 
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure3/Kaduna_mCPR.png"),
+png(paste0("Results/PaperFigs/Figure3/Kaduna_mCPR.png"),
     height=4*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(4,4,1,1))
 
@@ -187,7 +182,7 @@ dev.off()
 # -- read the model output -- #
 ###############################
 
-load("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/unmet_AgeALL_ParityALL_model.RDATA")
+load("Results/Model_Fits/unmet_AgeALL_ParityALL_model.RDATA")
 
 
 # 11 - Kaduna
@@ -210,7 +205,7 @@ indices<-which(preds$state==state )
  
 
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure3/Lagos_UnmetNeed.png"),
+png(paste0("Results/PaperFigs/Figure3/Lagos_UnmetNeed.png"),
     height=4*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(4,4,1,1))
 

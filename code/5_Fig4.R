@@ -7,17 +7,13 @@
 
 rm(list=ls())
 
-###############################
-# -- Set working directory -- #
-setwd("C:/Users/lmercer/Dropbox (IDM)/SmallAreaEstimationForFP/")
-
 #####################################
 # -- load packages and functions -- #
-source("NumericalAnalysis/UsefulFunctions/Packages.R")
-source("NumericalAnalysis/UsefulFunctions/addTrans.R")
-source("NumericalAnalysis/UsefulFunctions/expit_logit.R")
-source("NumericalAnalysis/UsefulFunctions/firstup.R")
-source("NumericalAnalysis/UsefulFunctions/simpleCap.R")
+source("UsefulFunctions/Packages.R")
+source("UsefulFunctions/addTrans.R")
+source("UsefulFunctions/expit_logit.R")
+source("UsefulFunctions/firstup.R")
+source("UsefulFunctions/simpleCap.R")
 
 
 ###################################
@@ -50,7 +46,7 @@ plot(shape2[indx,], col='red', add=T)
 # -- read the model output -- #
 ###############################
 
-load("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/Model_Fits/mcpr_AgeALL_ParityALL_model.RDATA")
+load("Results/Model_Fits/mcpr_AgeALL_ParityALL_model.RDATA")
 
 
 ##########################################################
@@ -75,7 +71,7 @@ for(jj in 1:1000){
 ##################
 ## plot results ##
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure4/AnnualChangeCI_2012-2017_mCPR.png"),
+png(paste0("Results/PaperFigs/Figure4/AnnualChangeCI_2012-2017_mCPR.png"),
     height=7,width=4,res=400, unit="in")
 par(mar=c(4,6.5,1,1))
 
@@ -105,7 +101,7 @@ abline(v=0,lty=2)
 dev.off()
 
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure4/AnnualChangeMap_2012-2017.png"),
+png(paste0("Results/PaperFigs/Figure4/AnnualChangeMap_2012-2017.png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(0,0,1.5,0))
 
@@ -149,7 +145,7 @@ for(jj in 1:1000){
 ##################
 ## plot results ##
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure4/AnnualChangeCI_2012-2018_mCPR.png"),
+png(paste0("Results/PaperFigs/Figure4/AnnualChangeCI_2012-2018_mCPR.png"),
     height=7,width=4.75,res=400, unit="in")
 par(mar=c(4,6.5,1,1))
 
@@ -179,7 +175,7 @@ abline(v=0,lty=2)
 dev.off()
 
 
-png(paste0("NumericalAnalysis/LainaScripts/NGA_SAE_paper/Results/PaperFigs/Figure4/AnnualChangeMap_2012-2018.png"),
+png(paste0("Results/PaperFigs/Figure4/AnnualChangeMap_2012-2018.png"),
     height=6*1.15,width=6*1.15,res=400, unit="in")
 par(mar=c(0,0,1.5,0))
 
