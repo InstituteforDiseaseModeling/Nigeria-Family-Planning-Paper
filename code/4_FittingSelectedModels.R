@@ -41,7 +41,7 @@ plot(shape2[indx,], col='red', add=T)
 
 ##################################
 # -- read in the combine data -- #
-dat<-read_csv("Data/Processed/Nigeria/All_Nigeria_2018-10-09.csv")
+dat<-read_csv(paste0("Data/Processed/Nigeria/All_Nigeria_",as.character(today()),".csv"))
 
 
 table(dat$survey,dat$recode,useNA = "ifany")
@@ -108,7 +108,8 @@ tmp<-All[,names(pred.all)]
 tmp$outcome<-as.numeric(unlist(tmp$outcome))
 tmp$prec<-as.numeric(unlist(tmp$prec))
 mod_dat<-rbind(tmp,pred.all)
-
+mod_dat<-mod_dat%>%mutate(outcome=ifelse(is.na(prec),NA,outcome),
+                          prec=ifelse(is.na(outcome),NA,prec))
 
 
 ##################################

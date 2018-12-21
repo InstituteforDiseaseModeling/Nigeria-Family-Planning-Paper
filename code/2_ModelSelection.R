@@ -114,7 +114,8 @@ tmp<-All[,names(pred.all)]
 tmp$outcome<-as.numeric(unlist(tmp$outcome))
 tmp$prec<-as.numeric(unlist(tmp$prec))
 mod_dat<-rbind(tmp,pred.all)
-
+mod_dat<-mod_dat%>%mutate(outcome=ifelse(is.na(prec),NA,outcome),
+                          prec=ifelse(is.na(outcome),NA,prec))
 
 
 ##################################
@@ -159,11 +160,11 @@ source("UsefulFunctions/Fit_SAE_Models_INLA.R")
 #####################################
 # looking for low DIC and WAIC and high sum(log(cpo))
 res<-rbind(cbind(mod1$dic$dic,mod1$dic$p.eff,sum(log(mod1$cpo$cpo),na.rm=T),mod1$waic$waic),# model 1 is the winner!
-      cbind(mod2$dic$dic,mod2$dic$p.eff,sum(log(mod2$cpo$cpo),na.rm=T),mod2$waic$waic),
-      cbind(mod3$dic$dic,mod3$dic$p.eff,sum(log(mod3$cpo$cpo),na.rm=T),mod3$waic$waic), 
-      cbind(mod4$dic$dic,mod4$dic$p.eff,sum(log(mod4$cpo$cpo),na.rm=T),mod4$waic$waic), 
-      cbind(mod5$dic$dic,mod5$dic$p.eff,sum(log(mod5$cpo$cpo),na.rm=T),mod5$waic$waic), 
-      cbind(mod6$dic$dic,mod6$dic$p.eff,sum(log(mod6$cpo$cpo),na.rm=T),mod6$waic$waic))
+    cbind(mod2$dic$dic,mod2$dic$p.eff,sum(log(mod2$cpo$cpo),na.rm=T),mod2$waic$waic),
+    cbind(mod3$dic$dic,mod3$dic$p.eff,sum(log(mod3$cpo$cpo),na.rm=T),mod3$waic$waic), 
+    cbind(mod4$dic$dic,mod4$dic$p.eff,sum(log(mod4$cpo$cpo),na.rm=T),mod4$waic$waic), 
+    cbind(mod5$dic$dic,mod5$dic$p.eff,sum(log(mod5$cpo$cpo),na.rm=T),mod5$waic$waic), 
+    cbind(mod6$dic$dic,mod6$dic$p.eff,sum(log(mod6$cpo$cpo),na.rm=T),mod6$waic$waic))
 
 res<-as.data.frame(res)
 names(res)<-c("DIC","p_eff","sum_log_cpo","WAIC")

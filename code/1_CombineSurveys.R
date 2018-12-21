@@ -135,11 +135,14 @@ dat<-dat%>%mutate(modern_method=as.numeric(modern_method),
                   MICS=grepl("MI",recode),
                   PMA=grepl("PMA",recode),
                   SMART=grepl("NNHS",recode),
-                  survey=NA,
-                  survey=ifelse(DHS==1,1,survey),
-                  survey=ifelse(MICS==1,2,survey),
-                  survey=ifelse(PMA==1,3,survey),
-                  survey=ifelse(SMART==1,4,survey))
+                  survey=NA
+                  )
+
+dat$survey<-ifelse(dat$DHS==1,1,dat$survey)
+dat$survey<-ifelse(dat$MICS==1,2,dat$survey)
+dat$survey<-ifelse(dat$PMA==1,3,dat$survey)
+dat$survey<-ifelse(dat$SMART==1,4,dat$survey)
+
 
 summary(dat$logit_mcpr)
 summary(dat$logit_ds)
